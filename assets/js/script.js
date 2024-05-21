@@ -16,6 +16,12 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+    //code for user can press enter also not just use use arrow to click submit button
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter"){
+            checkAnswer();
+        }
+    })
 
     runGame("addition");
 
@@ -25,6 +31,10 @@ document.addEventListener("DOMContentLoaded", function() {
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
+   //Create the code for the answer box to be empty after every new try
+    document.getElementById("answer-box").value = "";
+    //code for aroow to be the box so we dont need to click in the box to write answer
+    document.getElementById("answer-box").focus();
 
      // Creates two random numbers between 1 and 25
      let num1 = Math.floor(Math.random() * 25) + 1;
